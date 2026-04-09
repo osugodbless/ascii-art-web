@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom dashed border for the output to match the design */
+        .output-box {
+            border: 2px dashed #adb5bd;
+            background-color: #f1f3f5;
+            min-height: 250px;
+            font-family: monospace;
+            white-space: pre; /* Crucial: strictly preserves spaces and line breaks for ASCII art */
+            overflow-x: auto; /* Allows scrolling if the art is too wide */
+        }
+    </style>
+</head>
+<body class="bg-body-tertiary">
+
+<div class="container mt-5" style="max-width: 900px;">
+    <h2 class="mb-4 text-center">ASCII Art Generator</h2>
+
+    <div class="card shadow-sm mb-4 border-0">
+        <div class="card-body p-4">
+            <form action="/ascii-art" method="POST">
+                
+                <div class="mb-4">
+                    <label for="text" class="form-label fw-bold">Enter Text:</label>
+                    <textarea class="form-control" id="text" name="text" rows="4" placeholder="Type your message here..." required></textarea>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                    <div>
+                        <span class="fw-bold me-3 d-block d-md-inline mb-2 mb-md-0">Select Banner Style:</span>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="banner" id="standard" value="standard" checked>
+                            <label class="form-check-label" for="standard">Standard</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="banner" id="shadow" value="shadow">
+                            <label class="form-check-label" for="shadow">Shadow</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="banner" id="thinkertoy" value="thinkertoy">
+                            <label class="form-check-label" for="thinkertoy">Thinkertoy</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary px-4 py-2 fw-semibold">Generate ASCII Art</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h5 class="fw-bold mb-1">ASCII Art Output:</h5>
+        <p class="text-muted small mb-2">Preformatted text for rendering characters, preserving character spacing.</p>
+        
+        <div class="output-box p-4 rounded shadow-sm">{{if .Result}}{{.Result}}{{else}}&lt;Ascii art will appear here&gt;{{end}}</div>
+    </div>
+
+    <div class="text-center mt-5 mb-4 text-muted">
+        <small>Created for ASCII-Art-Web Project</small>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
