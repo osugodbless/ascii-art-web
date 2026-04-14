@@ -2,12 +2,36 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"os"
+	"time"
 
 	"asciiartweb/printer"
 )
 
+type myHandler struct {
+}
+
+func (h *myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+
+}
+
 func main() {
+	// Get server configuration
+	host := os.Getenv("HOST")
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "8080"
+	}
+
+	hostServer := &http.Server{
+		Addr:         fmt.Sprintf("%s:%s", host, port),
+		ReadTimeout:  10 * time.Second,
+		WriteTimeout: 10 * time.Second,
+		Handler:      &myHandler{},
+	}
+
 	if len(os.Args) < 2 {
 		fmt.Println("Without a flag, this program needs only one argument.\nYou can specify a custom banner.txt file to use for printing. However this is optional as the program uses the standard banner file as the default banner for printing. See 'Usage' below.\n\nUsage: go run . [STRING] [BANNER]\n\nEX: go run . \"something\" <bannerfilename>.txt")
 		os.Exit(1)

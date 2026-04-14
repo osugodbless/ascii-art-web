@@ -20,11 +20,11 @@
 <body class="bg-body-tertiary">
 
 <div class="container mt-5" style="max-width: 900px;">
-    <h2 class="mb-4 text-center">ASCII Art Generator</h2>
+    <h1 class="mb-4 text-center">ASCII Art Generator</h2>
 
     <div class="card shadow-sm mb-4 border-0">
         <div class="card-body p-4">
-            <form action="/ascii-art" method="POST">
+            <form action="/ascii-web" method="POST">
                 
                 <div class="mb-4">
                     <label for="text" class="form-label fw-bold">Enter Text:</label>
@@ -55,16 +55,15 @@
 
     <div class="mb-4">
         <h5 class="fw-bold mb-1">ASCII Art Output:</h5>
-        <p class="text-muted small mb-2">Preformatted text for rendering characters, preserving character spacing.</p>
         
         <div class="output-box p-4 rounded shadow-sm">{{if .Result}}{{.Result}}{{else}}&lt;Ascii art will appear here&gt;{{end}}</div>
     </div>
 
     <div class="text-center mt-5 mb-4 text-muted">
-        <small>Created for ASCII-Art-Web Project</small>
+        <small>Shot by <em>Deus benedicat</em></small>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
 </body>
 </html>
