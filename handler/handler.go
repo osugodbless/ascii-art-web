@@ -12,23 +12,21 @@ type Config struct {
 	Banner string `json:"banner"`
 }
 
-type AsciiResponse struct {
+type AsciiPageData struct {
 	Result string
 }
 
 type Application struct {
+	Template *template.Template
 }
 
 func (app *Application) HandleHomepage(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("./templates/index.html")
+	// Execute template and handle error if any
+	err := app.Template.Execute(w, nil)
 	if err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
-
-	res := &AsciiResponse{}
-
-	err = tmpl.Execute(w, res)
 }
 
 func (app *Application) HandleAscii(w http.ResponseWriter, r *http.Request) {
@@ -60,16 +58,18 @@ func (app *Application) HandleAscii(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Initialize a pointer to the response struct
-	res := &AsciiResponse{}
+	res := &AsciiPageData{}
 
+	// Generate the ascii art
 	res.Result = GenerateASCII(c, bannerLines)
 
 	if res.Result != "" {
-		app.HandleHomepage(w, r)
-		w.WriteHeader(http.StatusOK)
-
+		err := app.Template.Execute(w, res)
+		if err != nil {
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+			return
+		}
 	}
-
 }
 
 func ReadBanner(filename string) ([]string, error) {

@@ -56,47 +56,13 @@
     <div class="mb-4">
         <h5 class="fw-bold mb-1">ASCII Art Output:</h5>
         
-        <div class="output-box p-4 rounded shadow-sm">{{if .Result}}{{.Result}}{{else}}&lt;Ascii art will appear here&gt;{{end}}</div>
+        <div class="output-box p-4 rounded shadow-sm">{{if .Result}}{{.Result}}{{else}}Ascii art will appear here...{{end}}</div>
     </div>
 
     <div class="text-center mt-5 mb-4 text-muted">
         <small>Shot by <em>Deus benedicat</em></small>
     </div>
 </div>
-
-<!-- <script>
-document.getElementById('asciiWebForm').addEventListener('submit', async function(event) {
-    event.preventDefault(); // Stops the browser from leaving the page
-
-    // 'this' refers to the form element. 
-    // We can grab the URL and Method directly from the HTML attributes!
-    const targetUrl = this.action; 
-    const httpMethod = this.method; 
-
-    const formData = new FormData(this);
-    const plainObject = Object.fromEntries(formData.entries());
-    const jsonString = JSON.stringify(plainObject);
-
-    console.log(jsonString)
-
-    try {
-    // Look how clean this fetch call is now!
-    const response = await fetch(targetUrl, {
-        method: httpMethod, 
-        headers: {
-        'Content-Type': 'application/json',
-        },
-        body: jsonString
-    });
-
-    if (response.ok) {
-        console.log('Success!');
-    }
-    } catch (error) {
-    console.error('Form error:', error);
-    }
-});
-</script> -->
 
 </body>
 </html>
