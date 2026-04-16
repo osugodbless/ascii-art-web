@@ -64,7 +64,7 @@
     </div>
 </div>
 
-<script>
+<!-- <script>
 document.getElementById('asciiWebForm').addEventListener('submit', async function(event) {
     event.preventDefault(); // Stops the browser from leaving the page
 
@@ -76,6 +76,8 @@ document.getElementById('asciiWebForm').addEventListener('submit', async functio
     const formData = new FormData(this);
     const plainObject = Object.fromEntries(formData.entries());
     const jsonString = JSON.stringify(plainObject);
+
+    console.log(jsonString)
 
     try {
     // Look how clean this fetch call is now!
@@ -94,7 +96,7 @@ document.getElementById('asciiWebForm').addEventListener('submit', async functio
     console.error('Form error:', error);
     }
 });
-</script>
+</script> -->
 
 </body>
 </html>

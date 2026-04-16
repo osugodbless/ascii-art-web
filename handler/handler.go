@@ -1,8 +1,6 @@
 package handler
 
 import (
-	"encoding/json"
-	"fmt"
 	"html/template"
 	"net/http"
 	"os"
@@ -28,26 +26,35 @@ func (app *Application) HandleHomepage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = tmpl.Execute(w, tmpl)
+	res := &AsciiResponse{}
+
+	err = tmpl.Execute(w, res)
 }
 
 func (app *Application) HandleAscii(w http.ResponseWriter, r *http.Request) {
-	// A pointer to Config struct
-	c := &Config{}
 
-	// Decode incoming JSON from the request body into Config struct
-	err := json.NewDecoder(r.Body).Decode(c)
+	// Parse the HTML form data
+	err := r.ParseForm()
 
-	// Check for bad JSON error
+	// Check for errors
 	if err != nil {
-		fmt.Println(err)
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 		return
 	}
 
+	// Get the "text" and "banner" values
+	text := r.FormValue("text")
+	banner := r.FormValue("banner")
+
+	// A pointer to Config struct
+	c := &Config{
+		Text:   text,
+		Banner: banner,
+	}
+
 	// Read the banner file
-	bannerLines, err := ReadBanner("./" + c.Banner + ".txt")
-	if err != nil {
+	bannerLines, errB := ReadBanner("./" + c.Banner + ".txt")
+	if errB != nil {
 		http.Error(w, "Not Found", http.StatusNotFound)
 		return
 	}
@@ -57,7 +64,11 @@ func (app *Application) HandleAscii(w http.ResponseWriter, r *http.Request) {
 
 	res.Result = GenerateASCII(c, bannerLines)
 
-	app.HandleHomepage(w, r)
+	if res.Result != "" {
+		app.HandleHomepage(w, r)
+		w.WriteHeader(http.StatusOK)
+
+	}
 
 }
 
