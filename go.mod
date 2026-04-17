@@ -1,4 +1,4 @@
-module asciiartweb
+module github.com/osugodbless/ascii-art-web
 
 go 1.22.2
 

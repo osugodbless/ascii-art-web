@@ -1,9 +1,10 @@
 package handler_test
 
 import (
-	"asciiartweb/handler"
 	"reflect"
 	"testing"
+
+	"github.com/osugodbless/ascii-art-web/handler"
 )
 
 func TestReadBanner(t *testing.T) {

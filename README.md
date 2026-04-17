@@ -6,7 +6,7 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=for-the-badge)](https://github.com/RichardLitt/standard-readme)
 [![Go version](https://img.shields.io/badge/Go-1.22+-00ADD8?style=for-the-badge&logo=go)](https://golang.org/dl/)
-[![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](./LICENSE)
+[![MIT License](https://img.shields.io/badge/License-MIT-brightgreen?style=for-the-badge)](./LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/osugodbless)
 
 A web-based application written in Go that takes a string as input and displays it in a graphic representation using ASCII characters. This project transitions the classic command-line ASCII art generator I previously built (see it [here](https://github.com/osugodbless/ascii-art)) into a fully functional web server with a graphical user interface and server-side rendering.
@@ -36,9 +36,8 @@ A web-based application written in Go that takes a string as input and displays 
 ## Requirements
 - Go 1.22+ (Required for `GET /path` routing syntax)
 - `github.com/joho/godotenv` package
-- Banner text files (`standard.txt`, `shadow.txt`, `thinkertoy.txt`) located in the project's root directory.
+- 
 - An `.env` file specifying server configuration.
-- A `templates/index.html` file for the frontend layout.
 
 ## Usage: How to Run
 

@@ -1,13 +1,14 @@
 package main
 
 import (
-	"asciiartweb/handler"
 	"fmt"
 	"html/template"
 	"log"
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/osugodbless/ascii-art-web/handler"
 
 	"github.com/joho/godotenv"
 )
