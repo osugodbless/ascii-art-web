@@ -1,4 +1,9 @@
 mode: set
+github.com/osugodbless/ascii-art-web/main.go:16.13,19.16 2 0
+github.com/osugodbless/ascii-art-web/main.go:19.16,21.3 1 0
+github.com/osugodbless/ascii-art-web/main.go:24.2,27.16 3 0
+github.com/osugodbless/ascii-art-web/main.go:27.16,29.3 1 0
+github.com/osugodbless/ascii-art-web/main.go:32.2,54.36 8 0
 github.com/osugodbless/ascii-art-web/handler/handler.go:26.80,28.32 1 1
 github.com/osugodbless/ascii-art-web/handler/handler.go:28.32,31.3 2 1
 github.com/osugodbless/ascii-art-web/handler/handler.go:34.2,35.16 2 1

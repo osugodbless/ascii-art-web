@@ -7,6 +7,7 @@
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=for-the-badge)](https://github.com/RichardLitt/standard-readme)
 [![Go version](https://img.shields.io/badge/Go-1.22+-00ADD8?style=for-the-badge&logo=go)](https://golang.org/dl/)
 [![Go report](https://img.shields.io/badge/Go_report-A+-success?style=for-the-badge&logo=none)](https://goreportcard.com/report/github.com/osugodbless/ascii-art-web)
+[![Go coverage report](https://img.shields.io/badge/code_coverage-57.3%25-success?style=for-the-badge&logo=none)](https://app.codecov.io/github/osugodbless/ascii-art-web)
 [![MIT License](https://img.shields.io/badge/License-MIT-brightgreen?style=for-the-badge)](./LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/osugodbless)
 
