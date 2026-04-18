@@ -1,0 +1,27 @@
+mode: set
+github.com/osugodbless/ascii-art-web/handler/handler.go:26.80,28.32 1 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:28.32,31.3 2 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:34.2,35.16 2 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:35.16,38.3 2 0
+github.com/osugodbless/ascii-art-web/handler/handler.go:41.77,43.33 1 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:43.33,46.3 2 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:49.2,52.16 2 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:52.16,55.3 2 0
+github.com/osugodbless/ascii-art-web/handler/handler.go:58.2,69.17 5 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:69.17,72.3 2 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:75.2,80.22 3 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:80.22,82.17 2 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:82.17,85.4 2 0
+github.com/osugodbless/ascii-art-web/handler/handler.go:89.52,91.16 2 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:91.16,93.3 1 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:95.2,99.21 3 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:103.65,107.29 3 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:107.29,108.17 1 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:108.17,110.12 2 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:114.3,114.26 1 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:114.26,115.30 1 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:115.30,117.32 1 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:117.32,118.14 1 0
+github.com/osugodbless/ascii-art-web/handler/handler.go:122.5,124.37 2 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:128.4,128.18 1 1
+github.com/osugodbless/ascii-art-web/handler/handler.go:132.2,132.15 1 1

@@ -1,15 +1,18 @@
 package handler
 
 import (
+	"embed"
 	"html/template"
 	"net/http"
-	"os"
 	"strings"
 )
 
+//go:embed *.txt
+var BannerFiles embed.FS
+
 type Config struct {
-	Text   string `json:"text"`
-	Banner string `json:"banner"`
+	Text       string `json:"text"`
+	BannerName string `json:"banner"`
 }
 
 type AsciiPageData struct {
@@ -21,6 +24,12 @@ type Application struct {
 }
 
 func (app *Application) HandleHomepage(w http.ResponseWriter, r *http.Request) {
+
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
 	// Execute template and handle error if any
 	err := app.Template.Execute(w, nil)
 	if err != nil {
@@ -30,6 +39,11 @@ func (app *Application) HandleHomepage(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *Application) HandleAscii(w http.ResponseWriter, r *http.Request) {
+
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+		return
+	}
 
 	// Parse the HTML form data
 	err := r.ParseForm()
@@ -46,12 +60,12 @@ func (app *Application) HandleAscii(w http.ResponseWriter, r *http.Request) {
 
 	// A pointer to Config struct
 	c := &Config{
-		Text:   text,
-		Banner: banner,
+		Text:       text,
+		BannerName: banner,
 	}
 
 	// Read the banner file
-	bannerLines, errB := ReadBanner("./" + c.Banner + ".txt")
+	bannerLines, errB := ReadBanner(c.BannerName)
 	if errB != nil {
 		http.Error(w, "Not Found", http.StatusNotFound)
 		return
@@ -73,7 +87,7 @@ func (app *Application) HandleAscii(w http.ResponseWriter, r *http.Request) {
 }
 
 func ReadBanner(filename string) ([]string, error) {
-	data, err := os.ReadFile(filename)
+	data, err := BannerFiles.ReadFile(filename + ".txt")
 	if err != nil {
 		return nil, err
 	}
